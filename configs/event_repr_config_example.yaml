@@ -1,0 +1,50 @@
+# Base config for the event representation demo.
+# Keep common defaults here, then make small debug override files.
+
+paths:
+  dataset: real
+  default_real_events_path: /users/rongzou/rong/datasets/gen3_droneflight/models/speed1/events.h5
+  vis_root: /users/rongzou/rong/code/event_representations/ev_rep_vis
+  vis_dir: /users/rongzou/rong/code/event_representations/ev_rep_vis/examples 
+
+slice:
+  t0: 10000000
+  t1: 10020000
+
+render:
+  save: true
+  save_raw: false
+  max_point_cloud_points: 100000
+
+run:
+  representations:
+    - all
+
+loops:
+  polarity_sum_ternary_image_thresholds: [5]
+  average_timestamp_image_split_polarity: [true, false]
+  event_count_image_split_polarity: [true, false]
+
+  event_spike_tensor_kernels: [exponential]
+  event_spike_tensor_num_bins: [6]
+  event_spike_tensor_temporal_window_factors: [3.0]
+  event_spike_tensor_measurements: [timestamp]
+  event_spike_tensor_separate_polarity: [false]
+
+  mixed_density_event_stack_num_bins: [6]
+  mixed_density_event_stack_measurements: [polarity]
+
+  event_stack_by_number_num_bins: [3]
+  event_stack_by_number_measurements: [polarity]
+  event_stack_by_number_split_polarity: [false]
+
+  event_stack_by_time_num_bins: [3]
+  event_stack_by_time_measurements: [count]
+  event_stack_by_time_split_polarity: [false]
+
+  tore_volume_ks: [6]
+
+  voxel_grid_num_bins: [3, 6]
+  voxel_grid_modes: [bilinear]
+  voxel_grid_measurements: [count, polarity]
+  voxel_grid_separate_polarity: [false]

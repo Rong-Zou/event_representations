@@ -1,0 +1,54 @@
+# Base config for the event representation demo.
+# Keep common defaults here, then make small debug override files.
+
+paths:
+  dataset: real
+  default_real_events_path: /users/rongzou/rong/datasets/gen3_droneflight/models/speed1/events.h5
+  default_syn_events_path: /users/rongzou/rong/datasets/ev-deblurnerf_blender/blurwine/events.h5
+  # Optional: if set, this file is used instead of the dataset-specific default above.
+  override_events_path: null
+  vis_root: /users/rongzou/rong/code/event_representations/ev_rep_vis
+  # Optional: if set, visualizations are saved to this directory instead of the default vis_root/dataset_name
+  vis_dir: null 
+
+slice:
+  t0: 10000000
+  t1: 10020000
+
+render:
+  save: true
+  save_raw: false
+  max_point_cloud_points: 100000
+
+run:
+  representations:
+    - all
+
+loops:
+  polarity_sum_ternary_image_thresholds: [5]
+  average_timestamp_image_split_polarity: [true, false]
+  event_count_image_split_polarity: [true, false]
+
+  event_spike_tensor_kernels: [trilinear, alpha, exponential]
+  event_spike_tensor_num_bins: [3, 6]
+  event_spike_tensor_temporal_window_factors: [3.0]
+  event_spike_tensor_measurements: [count, timestamp, polarity]
+  event_spike_tensor_separate_polarity: [true, false]
+
+  mixed_density_event_stack_num_bins: [3, 6]
+  mixed_density_event_stack_measurements: [count, timestamp, polarity]
+
+  event_stack_by_number_num_bins: [3, 6]
+  event_stack_by_number_measurements: [count, timestamp, polarity]
+  event_stack_by_number_split_polarity: [true, false]
+
+  event_stack_by_time_num_bins: [3, 6]
+  event_stack_by_time_measurements: [count, timestamp, polarity]
+  event_stack_by_time_split_polarity: [true, false]
+
+  tore_volume_ks: [3, 6]
+
+  voxel_grid_num_bins: [3, 6]
+  voxel_grid_modes: [nearest, bilinear]
+  voxel_grid_measurements: [count, timestamp, polarity]
+  voxel_grid_separate_polarity: [true, false]
