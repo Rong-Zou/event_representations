@@ -130,9 +130,9 @@ with h5py.File("events.h5", "r") as f:
 
 ### (1). Download a datapoint
 
-The demo example uses data from the paper [Event-Aided Sharp Radiance Field Reconstruction for Fast-Flying Drones](https://arxiv.org/pdf/2602.21101).
+The demo example uses data from the paper [Event-Aided Sharp Radiance Field Reconstruction for Fast-Flying Drones](https://github.com/uzh-rpg/event-sharp-nerf-drones).
 
-Download the data from [here](https://download.ifi.uzh.ch/rpg/web/data/tro26_ev-deblur-drone/).
+Download the data from [here](https://download.ifi.uzh.ch/rpg/web/data/tro26_ev-deblur-drone/gen3_droneflight.zip).
 
 Then change the path in `configs/event_repr_config_example.yaml` so it points to the downloaded HDF5 file.
 
